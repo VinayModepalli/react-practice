@@ -13,6 +13,22 @@
     <div id="app"></div>
     <script type="text/babel">
         class App extends React.Component {
+            handleClick = (e) => {
+                //console.log(e);
+                //console.log(e.target);
+                console.log(this.state.name)
+            }
+            handleMouseOver = (e) => {
+                console.log(e.target)
+            }
+            handleCopy = (e) =>{
+                console.log('Strictly Forbidden..')
+            }
+            handleStateChange = (e) => {
+                this.setState({
+                    name : "sharookh"
+                });
+            }
             state = {
                 name: 'khan',
                 age: 30
@@ -22,6 +38,10 @@
                     <div>
                         <h1>Hacker..!!</h1>
                         <p>My name is {this.state.name} and my age is {this.state.age} </p>    
+                        <button onClick={ this.handleClick }>Click</button>
+                        <button onMouseOver={ this.handleMouseOver }>MouseOver</button>
+                        <button onClick={this.handleStateChange}>Change Name</button>
+                        <p onCopy={ this.handleCopy }>This is my Text</p>
                     </div>
                 );
             }
